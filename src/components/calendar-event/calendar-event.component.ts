@@ -2,7 +2,6 @@ import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { Event } from './Event';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-calendar-event',
   templateUrl: './calendar-event.component.html',
