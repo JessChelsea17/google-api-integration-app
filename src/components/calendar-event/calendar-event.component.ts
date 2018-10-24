@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input, NgZone } from '@angular/core';
 import { Event } from './Event';
 import { Router } from '@angular/router';
 
@@ -15,25 +15,34 @@ export class CalendarEventComponent implements OnInit {
   @Input() isEdit: boolean;
 
   constructor(
-    private router: Router
+    private router: Router,
+    private zone: NgZone,
   ) { }
 
   ngOnInit() {
+    this.test();
+  }
+
+  test() {
     var reqBody = {
-      "start": {
-        "dateTime": "2018-10-24T14:30:00-07:00",
-        "timeZone": "America/Los_Angeles"
+      start: {
+        dateTime: '2018-10-24T14:30:00-07:00',
+        timeZone: 'America/Los_Angeles'
       },
-      "end": {
-        "dateTime": "2018-10-24T14:30:00-07:00",
-        "timeZone": "America/Los_Angeles"
+      end: {
+        dateTime: '2018-10-24T14:30:00-07:00',
+        timeZone: 'America/Los_Angeles'
       }
     }
-    var request = gapi.client['calendar'].events.insert({
-      'calendarId': 'primary',
-      'requestBody':  reqBody
+    gapi.client['calendar'].events.insert({
+      calendarId: 'primary',
+      resource:  reqBody
+    }).then((res) => {
+          this.zone.run(() => {
+            console.log('REQUEST: ', res);
+          });
     });
-  }
+}
 
   addEvent(eventname, location, description, startdate, enddate, timezone) {
     if(!eventname || !startdate || !enddate || !timezone) {
@@ -43,8 +52,8 @@ export class CalendarEventComponent implements OnInit {
       console.log(timezone)
       alert('Please fill in all required fields');
     } else {
-      startdate = startdate + ":00";
-      enddate = enddate + ":00";
+      startdate = startdate + ':00';
+      enddate = enddate + ':00';
       console.log(eventname)
       console.log(location)
       console.log(description)
@@ -58,7 +67,7 @@ export class CalendarEventComponent implements OnInit {
   }
 
   back() {
-    this.router.navigate(["/home"]);
+    this.router.navigate(['/home']);
   }
 
 }
