@@ -1,0 +1,13 @@
+<mat-toolbar>
+  <h1>HD Google Drive</h1>
+  <span class="fill-space"></span>
+  <mat-form-field class="profile">
+    <mat-select [(value)]="selectedUserId">
+      <mat-option *ngFor="let user of users" [value]="user.Id">
+        {{user.Email}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-button (click)="signOut()">Sign out</button>
+</mat-toolbar>

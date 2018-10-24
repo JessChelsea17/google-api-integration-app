@@ -1,0 +1,8 @@
+.fill-space {
+    flex: 1 1 auto;
+}
+
+.profile {
+    font-size: 14px;
+    width: 200px;
+}

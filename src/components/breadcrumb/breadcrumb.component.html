@@ -1,0 +1,7 @@
+<mat-toolbar>
+    <span class="breadcrumbitemcontainer" *ngFor="let item of items;let i=index">
+        <breadcrumbitem (onSelectedOption)="onSelectedOptionHandler($event)" (onSelected)="onSelectedHandler($event)" 
+            [model]="item"></breadcrumbitem>
+        <mat-icon *ngIf="i !== (items.length -1)">keyboard_arrow_right</mat-icon>
+    </span>
+</mat-toolbar>

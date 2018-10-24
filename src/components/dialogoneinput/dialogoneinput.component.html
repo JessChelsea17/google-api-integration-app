@@ -1,0 +1,10 @@
+<h1 mat-dialog-title>{{data.Title}}</h1>
+<div mat-dialog-content>
+  <mat-form-field class="name">
+    <input (click)="$event.target.select()" matInput [(ngModel)]="name">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-button (click)="cancel()">CANCEL</button>
+  <button mat-button [mat-dialog-close]="name" cdkFocusInitial>CREATE</button>
+</div>

@@ -1,0 +1,10 @@
+<mat-list>
+    <mat-list-item *ngFor="let file of files">
+        <span>{{file.Name}}</span>
+        <span class="fill-space"></span>
+        <span><mat-spinner [diameter]="20" mode="determinate" [value]="file.Progress"></mat-spinner></span>
+    </mat-list-item>
+    <mat-list-item *ngIf="errorMessage">
+        {{errorMessage}}
+    </mat-list-item>
+<mat-list>

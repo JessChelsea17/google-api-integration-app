@@ -1,0 +1,20 @@
+.icon {
+    margin-top: -6px;
+}
+
+.uploadFilesWrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.uploadFilesWrapper input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+
+  }
+
+::-webkit-file-upload-button { cursor:pointer; }

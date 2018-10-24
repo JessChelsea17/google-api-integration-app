@@ -1,0 +1,21 @@
+<span *ngIf="!model.ShowOption">
+  <button mat-button (click)="select()">{{model.Name}}</button>
+</span>
+<span *ngIf="model.ShowOption">
+  <button mat-button [matMenuTriggerFor]="menu">{{model.Name}}</button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="newFolder()">
+      <mat-icon class="icon">create_new_folder</mat-icon>
+      New folder
+    </button>
+
+    <span class="uploadFilesWrapper">
+      <button mat-menu-item>
+        <mat-icon class="icon">cloud_upload</mat-icon>
+        Upload files
+      </button>
+      <input (change)="uploadFiles($event)" multiple type="file" />
+    </span>
+
+  </mat-menu>
+</span>

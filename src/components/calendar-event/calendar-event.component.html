@@ -1,0 +1,49 @@
+<button class="centered" mat-raised-button color="primary" (click)="back()">Back</button>
+
+<div>
+  <button (click)="showContactForm = !showContactForm" class="btn btn-dark mb-3">Add Event</button>
+
+  <div class="clear"></div>
+  <div class="card card-body mb-3" *ngIf="showContactForm">
+    <form>
+      <div class="form-group">
+        <label>Event Name</label>
+        <input type="text" class="form-control" name="eventname" #eventname/>
+      </div>
+      <div class="form-group">
+        <label>Location</label>
+        <input type="text" class="form-control" name="location" #location/>
+      </div>
+      <div class="form-group">
+        <label>Description</label>
+        <textarea class="form-control" name="description" rows="5" #description></textarea>
+      </div>
+      <div class="form-group">
+        <label>Start</label>
+        <input type="datetime-local" class="form-control" #startdate name="startdate"/>
+      </div>
+      <div class="form-group">
+        <label>End</label>
+        <input type="datetime-local" class="form-control" #enddate name="enddate"/>
+      </div>
+      <div class="form-group">
+        <label for="timezone">Time Zone</label>
+        <select class="form-control" #timezone name="timezone">
+          <option value="Asia/Jakarta">Asia/Jakarta (GMT+07:00)</option>
+          <option value="Asia/Hong_Kong">Asia/Hong_Kong (GMT+08:00)</option>
+          <option value="Asia/Tokyo">Asia/Tokyo (GMT+09:00)</option>
+          <option value="Asia/Sydney">Australia/Sydney (GMT+10:00)</option>
+        </select>
+      </div>
+      <button class="btn btn-primary btn-block" (click)="addEvent(
+        eventname.value,
+        location.value,
+        description.value,
+        startdate.value,
+        enddate.value,
+        timezone.value
+        )">Add Event
+      </button>
+    </form>
+  </div>
+</div>

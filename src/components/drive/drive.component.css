@@ -1,0 +1,21 @@
+table {
+    width: 100%;
+} 
+th.mat-column-icon, td.mat-column-icon {
+    width: 40px;
+}
+.folder {
+    cursor: pointer;
+}
+
+.delete {
+    cursor: pointer;
+}
+
+.fill-space {
+    flex: 1 1 auto;
+}
+
+.version {
+    font-size: 14px;
+}
