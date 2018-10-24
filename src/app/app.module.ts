@@ -24,6 +24,7 @@ import { FilesUploadComponent } from '../components/filesupload/filesupload.comp
 import { MatButtonModule, MatIconModule, MatMenuModule, MatTableModule, MatBottomSheetModule, MatDialogModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatToolbarModule, MatProgressSpinnerModule, MatListModule } from '@angular/material';
 import { HomeComponent } from '../components/home/home.component';
 import { CalendarEventComponent } from '../components/calendar-event/calendar-event.component';
+import { YoutubeComponent } from '../components/youtube/youtube.component';
 
 export function initGapi(gapiSession: GapiSession) {
   return () => gapiSession.initClient();
@@ -37,6 +38,7 @@ export function initGapi(gapiSession: GapiSession) {
     DriveComponent,
     HomeComponent,
     CalendarEventComponent,
+    YoutubeComponent,
     DialogOneInputComponent,
     FilesUploadComponent,
     HdMenuComponent,

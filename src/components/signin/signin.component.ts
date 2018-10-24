@@ -8,6 +8,7 @@ import { Router } from "@angular/router";
     styleUrls: ["./signin.component.css"]
 })
 export class SignInComponent {
+    isButton = true;
 
     constructor(
         private appContext: AppContext,
