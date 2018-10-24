@@ -2,8 +2,12 @@ import { Injectable, EventEmitter } from "@angular/core";
 import { AppRepository } from "../repositories/app.repository";
 const CLIENT_ID = "631877680735-mmd1uovodtqirv18e6nifc0q4lquh66j.apps.googleusercontent.com";
 const API_KEY = "AIzaSyDlvPd4LXh_g-KeEGfTLquQZnoeDFDDo48";
-const DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/drive/v3/rest"];
-var SCOPES = 'https://www.googleapis.com/auth/drive';
+const DISCOVERY_DOCS = ['https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest',
+                        'https://www.googleapis.com/discovery/v1/apis/drive/v3/rest'];
+var SCOPES = [
+    'https://www.googleapis.com/auth/calendar',
+    'https://www.googleapis.com/auth/drive'
+    ].join(' ');
 
 @Injectable()
 export class GapiSession {
