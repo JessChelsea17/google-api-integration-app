@@ -18,6 +18,20 @@ export class CalendarEventComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    var reqBody = {
+      "start": {
+        "dateTime": "2018-10-24T14:30:00-07:00",
+        "timeZone": "America/Los_Angeles"
+      },
+      "end": {
+        "dateTime": "2018-10-24T14:30:00-07:00",
+        "timeZone": "America/Los_Angeles"
+      }
+    }
+    var request = gapi.client['calendar'].events.insert({
+      'calendarId': 'primary',
+      'requestBody':  reqBody
+    });
   }
 
   addEvent(eventname, location, description, startdate, enddate, timezone) {

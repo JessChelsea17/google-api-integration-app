@@ -19,3 +19,7 @@ th.mat-column-icon, td.mat-column-icon {
 .version {
     font-size: 14px;
 }
+
+.centered {
+    margin-top: 1rem;
+}
