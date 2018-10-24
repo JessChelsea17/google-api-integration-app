@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input, NgZone } from '@angular/core';
 import { Event } from './Event';
 import { Router } from '@angular/router';
 
@@ -14,50 +14,44 @@ export class CalendarEventComponent implements OnInit {
   @Input() isEdit: boolean;
 
   constructor(
-    private router: Router
+    private router: Router,
+    private zone: NgZone,
   ) { }
 
-  ngOnInit() {
-    var reqBody = {
-      "start": {
-        "dateTime": "2018-10-24T14:30:00-07:00",
-        "timeZone": "America/Los_Angeles"
-      },
-      "end": {
-        "dateTime": "2018-10-24T14:30:00-07:00",
-        "timeZone": "America/Los_Angeles"
-      }
-    }
-    var request = gapi.client['calendar'].events.insert({
-      'calendarId': 'primary',
-      'requestBody':  reqBody
-    });
-  }
+  ngOnInit() {}
 
   addEvent(eventname, location, description, startdate, enddate, timezone) {
     if(!eventname || !startdate || !enddate || !timezone) {
-      console.log(eventname)
-      console.log(startdate)
-      console.log(enddate)
-      console.log(timezone)
       alert('Please fill in all required fields');
     } else {
-      startdate = startdate + ":00";
-      enddate = enddate + ":00";
-      console.log(eventname)
-      console.log(location)
-      console.log(description)
-      console.log(startdate)
-      console.log(enddate)
-      // console.log(timezone)
-      // this.eventService.saveEvent({eventname, location, description, startdate, enddate, timezone} as Event).subscribe(event => {
-      //   this.newEvent.emit(event);
-      // });
+      startdate = startdate + ':00';
+      enddate = enddate + ':00';
+      var reqBody = {
+        'summary': eventname,
+        'location': location,
+        'description': description,
+        'start': {
+          'dateTime': startdate,
+          'timeZone': timezone
+        },
+        'end': {
+          'dateTime': startdate,
+          'timeZone': timezone
+        }
+      }
+      gapi.client['calendar'].events.insert({
+        calendarId: 'primary',
+        resource:  reqBody
+      }).then((res) => {
+            this.zone.run(() => {
+              console.log('REQUEST: ', res);
+            });
+      });
     }
   }
 
   back() {
-    this.router.navigate(["/home"]);
+    this.router.navigate(['/home']);
   }
 
 }
