@@ -36,7 +36,7 @@ export class CalendarEventComponent implements OnInit {
       console.log(description)
       console.log(startdate)
       console.log(enddate)
-      console.log(timezone)
+      // console.log(timezone)
       // this.eventService.saveEvent({eventname, location, description, startdate, enddate, timezone} as Event).subscribe(event => {
       //   this.newEvent.emit(event);
       // });
