@@ -2,7 +2,6 @@ import { Component, OnInit, EventEmitter, Output, Input, NgZone } from '@angular
 import { Event } from './Event';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-calendar-event',
   templateUrl: './calendar-event.component.html',
