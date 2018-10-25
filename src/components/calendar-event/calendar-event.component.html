@@ -1,54 +1,65 @@
-<button class="centered" mat-raised-button color="warn" (click)="back()">Back</button>
+<div class="container">
+  <button class="centered" mat-raised-button color="warn" (click)="back()">Back</button>
 
-<div class="center">
-  <iframe src="https://calendar.google.com/calendar/embed?showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=google.com_9p9gmjgoqnlbcb33cistbcn5dg%40group.calendar.google.com&amp;color=%23AB8B00&amp;ctz=Asia%2FManila" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
-</div>
-<div class="clear"></div>
-
-<div>
-  <button (click)="showContactForm = !showContactForm" class="btn btn-dark mb-3">Add Event</button>
-
+  <div class="center">
+    <iframe
+      src="https://calendar.google.com/calendar/embed?showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=jacquey%40google.com&amp;color=%23AB8B00&amp;ctz=Asia%2FManila"
+      style="border-width:20px 0 20px 0; border-color: transparent"
+      width="100%"
+      height="600"
+      frameborder="0"
+      scrolling="no">
+    </iframe>
+  </div>
   <div class="clear"></div>
-  <div class="card card-body mb-3" *ngIf="showContactForm">
-    <form>
-      <div class="form-group">
-        <label>Event Name</label>
-        <input type="text" class="form-control" name="eventname" #eventname/>
-      </div>
-      <div class="form-group">
-        <label>Location</label>
-        <input type="text" class="form-control" name="location" #location/>
-      </div>
-      <div class="form-group">
-        <label>Description</label>
-        <textarea class="form-control" name="description" rows="5" #description></textarea>
-      </div>
-      <div class="form-group">
-        <label>Start</label>
-        <input type="datetime-local" class="form-control" #startdate name="startdate"/>
-      </div>
-      <div class="form-group">
-        <label>End</label>
-        <input type="datetime-local" class="form-control" #enddate name="enddate"/>
-      </div>
-      <div class="form-group">
-        <label for="timezone">Time Zone</label>
-        <select class="form-control" #timezone name="timezone">
-          <option value="Asia/Jakarta">Asia/Jakarta (GMT+07:00)</option>
-          <option value="Asia/Hong_Kong">Asia/Hong_Kong (GMT+08:00)</option>
-          <option value="Asia/Tokyo">Asia/Tokyo (GMT+09:00)</option>
-          <option value="Asia/Sydney">Australia/Sydney (GMT+10:00)</option>
-        </select>
-      </div>
-      <button class="btn btn-primary btn-block" (click)="addEvent(
-        eventname.value,
-        location.value,
-        description.value,
-        startdate.value,
-        enddate.value,
-        timezone.value
-        )">Add Event
-      </button>
-    </form>
+
+  <div class="center">
+    <button (click)="showContactForm = !showContactForm" class="btn btn-primary mb-3">Add an Event</button>
+  </div>
+  <div>
+    <div class="clear"></div>
+    <div class="card card-body mb-3" *ngIf="showContactForm">
+      <form>
+        <div class="form-group">
+          <label>Event Name</label>
+          <input type="text" class="form-control" name="eventname" #eventname/>
+        </div>
+        <div class="form-group">
+          <label>Location</label>
+          <input type="text" class="form-control" name="eventlocation" #eventlocation/>
+        </div>
+        <div class="form-group">
+          <label>Description</label>
+          <textarea class="form-control" name="description" rows="5" #description></textarea>
+        </div>
+        <div class="form-group">
+          <label>Start<font color="red">*</font></label>
+          <input type="datetime-local" class="form-control" #startdate name="startdate"/>
+        </div>
+        <div class="form-group">
+          <label>End<font color="red">*</font></label>
+          <input type="datetime-local" class="form-control" #enddate name="enddate"/>
+        </div>
+        <div class="form-group">
+          <label for="timezone">Time Zone<font color="red">*</font></label>
+          <select class="form-control" #timezone name="timezone">
+            <option value="Asia/Jakarta">Asia/Jakarta (UTC+07:00)</option>
+            <option value="Asia/Hong_Kong">Asia/Hong Kong (UTC+08:00)</option>
+            <option value="Asia/Tokyo">Asia/Tokyo (UTC+09:00)</option>
+            <option value="Australia/Sydney">Australia/Sydney (UTC+10:00)</option>
+          </select>
+        </div>
+        <p><small>Items marked as <font color="red">*</font> are required.</small></p>
+        <button class="btn btn-primary btn-block" (click)="addEvent(
+          eventname.value,
+          eventlocation.value,
+          description.value,
+          startdate.value,
+          enddate.value,
+          timezone.value
+          )">Add Event
+        </button>
+      </form>
+    </div>
   </div>
 </div>
