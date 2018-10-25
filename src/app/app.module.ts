@@ -25,6 +25,8 @@ import { MatButtonModule, MatIconModule, MatMenuModule, MatTableModule, MatBotto
 import { HomeComponent } from '../components/home/home.component';
 import { CalendarEventComponent } from '../components/calendar-event/calendar-event.component';
 import { YoutubeComponent } from '../components/youtube/youtube.component';
+import { YoutubePipe } from '../components/youtube/filename.pipe';
+import { YoutubePlayerModule } from 'ngx-youtube-player';
 
 export function initGapi(gapiSession: GapiSession) {
   return () => gapiSession.initClient();
@@ -43,6 +45,7 @@ export function initGapi(gapiSession: GapiSession) {
     FilesUploadComponent,
     HdMenuComponent,
     SignInComponent,
+    YoutubePipe
   ],
   entryComponents: [
     DialogOneInputComponent,
@@ -53,6 +56,7 @@ export function initGapi(gapiSession: GapiSession) {
     BrowserModule,
     FormsModule,
     routing,
+    YoutubePlayerModule,
 
     MatBottomSheetModule,
     MatButtonModule,

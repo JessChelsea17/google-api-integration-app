@@ -1,3 +1,11 @@
+<div id="branding">
+        <div id="btn">
+            <button mat-raised-button color="warn" (click)="back()">Back</button>
+        </div>
+        <div id="title">
+            Google Drive
+        </div>
+</div>
 <breadcrumb (onSelectedOptionChanged)="onSelectedOptionChanged($event)" (onSelectedItemChanged)="onSelectedItemChanged($event)"
     [items]="breadCrumbItems"></breadcrumb>
 
@@ -39,5 +47,3 @@
     <span class="fill-space"></span>
     <span class="version">Version 2018.08.23.1</span>
 </mat-toolbar>
-
-<button class="centered" mat-raised-button color="warn" (click)="back()">Back</button>
