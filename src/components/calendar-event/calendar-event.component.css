@@ -2,30 +2,21 @@
     margin-top: 1rem;
 }
 
-/* @media (max-width: 550px) {
-    .big-container {
-        display: none;
-    }
-}
-@media (min-width: 550px) {
-    .small-container {
-        display: none;
-    }
-} */
-/* Responsive iFrame */
-/* .responsive-iframe-container {
-    position: relative;
-    padding-bottom: 56.25%;
-    padding-top: 30px;
-    height: 0;
-    overflow: hidden;
-}
-.responsive-iframe-container iframe,   
-.vresponsive-iframe-container object,  
-.vresponsive-iframe-container embed {
-    position: absolute;
-    top: 0;
-    left: 0;
+#branding {
+    background: #212121;
+    color: #fff;
     width: 100%;
-    height: 100%; */
-/* } */
+}
+
+#title {
+    text-align: center;
+    vertical-align: middle;
+    line-height: 45px;
+    height: 50px;
+    font-size: 20px;
+}
+
+#btn {
+    position: absolute;
+    padding: 10px 0 0 10px;
+}
