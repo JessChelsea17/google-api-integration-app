@@ -20,22 +20,22 @@ export class CalendarEventComponent implements OnInit {
 
   ngOnInit() {}
 
-  addEvent(eventname, location, description, startdate, enddate, timezone) {
-    if(!eventname || !startdate || !enddate || !timezone) {
+  addEvent(eventname, eventlocation, description, startdate, enddate, timezone) {
+    if(!startdate || !enddate || !timezone) {
       alert('Please fill in all required fields');
     } else {
       startdate = startdate + ':00';
       enddate = enddate + ':00';
       var reqBody = {
         'summary': eventname,
-        'location': location,
+        'location': eventlocation,
         'description': description,
         'start': {
           'dateTime': startdate,
           'timeZone': timezone
         },
         'end': {
-          'dateTime': startdate,
+          'dateTime': enddate,
           'timeZone': timezone
         }
       }
@@ -45,7 +45,9 @@ export class CalendarEventComponent implements OnInit {
       }).then((res) => {
             this.zone.run(() => {
               console.log('REQUEST: ', res);
+              alert('Event has been added.');
             });
+            location.reload();
       });
     }
   }
