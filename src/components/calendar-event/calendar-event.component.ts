@@ -1,6 +1,6 @@
-import { Component, OnInit, EventEmitter, Output, Input, NgZone } from '@angular/core';
-import { Event } from './Event';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-calendar-event',
@@ -9,16 +9,17 @@ import { Router } from '@angular/router';
 })
 export class CalendarEventComponent implements OnInit {
 
-  @Output() newEvent: EventEmitter<Event> = new EventEmitter();
-  @Input() currentEvent: Event;
-  @Input() isEdit: boolean;
+  defaultTime: string;
+  defaultValue: boolean = true;
 
   constructor(
     private router: Router,
-    private zone: NgZone,
+    private zone: NgZone
   ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.defaultTime = moment().format('YYYY-MM-DD')+'T00:00';
+  }
 
   addEvent(eventname, eventlocation, description, startdate, enddate, timezone) {
     if(!startdate || !enddate || !timezone) {
@@ -26,6 +27,7 @@ export class CalendarEventComponent implements OnInit {
     } else {
       startdate = startdate + ':00';
       enddate = enddate + ':00';
+      console.log(startdate);
       var reqBody = {
         'summary': eventname,
         'location': eventlocation,
