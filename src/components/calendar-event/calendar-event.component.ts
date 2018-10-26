@@ -13,7 +13,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 export class CalendarEventComponent implements OnInit {
 
   defaultTime: string;
-  defaultValue: boolean = true;
+  showContactForm: boolean = false;
 
   constructor(
     private router: Router,

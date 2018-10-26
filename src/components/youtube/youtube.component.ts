@@ -8,9 +8,9 @@ import { Router } from '@angular/router';
 })
 export class YoutubeComponent {
   player: YT.Player;
-  private id: string = 'PRQCAL_RMVo';
-  private height: number = 500;
-  private width: number = 700; 
+  id: string = 'PRQCAL_RMVo';
+  height: number = 500;
+  width: number = 700; 
 
   constructor(private router: Router) {}
 
