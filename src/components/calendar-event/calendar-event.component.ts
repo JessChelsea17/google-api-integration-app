@@ -25,7 +25,7 @@ export class CalendarEventComponent implements OnInit {
   ngOnInit() {
     this.defaultTime = moment().format('YYYY-MM-DD')+'T00:00';
     this.users = this.appContext.Repository.User.getAll();
-    this.selectedUserEmail = this.users[1].Email;
+    this.selectedUserEmail = this.users[0].Email;
     this.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(this.url);
   
   }
