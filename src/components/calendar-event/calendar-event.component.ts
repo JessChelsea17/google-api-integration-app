@@ -41,6 +41,7 @@ export class CalendarEventComponent implements OnInit {
     } else {
       startdate = startdate + ':00';
       enddate = enddate + ':00';
+      console.log(startdate);
       var reqBody = {
         'summary': eventname,
         'location': eventlocation,

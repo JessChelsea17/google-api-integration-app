@@ -1,7 +1,7 @@
 import { Injectable, EventEmitter } from "@angular/core";
 import { AppRepository } from "../repositories/app.repository";
-const CLIENT_ID = "631877680735-mmd1uovodtqirv18e6nifc0q4lquh66j.apps.googleusercontent.com";
-const API_KEY = "AIzaSyDlvPd4LXh_g-KeEGfTLquQZnoeDFDDo48";
+const CLIENT_ID = "883324409106-p9dd7fd9ls2jjhtj9gm8d7oul461d3ld.apps.googleusercontent.com";
+const API_KEY = "AIzaSyASOC_Ego93R5cCJf0FuYXk45BGAJdoVyA";
 const DISCOVERY_DOCS = ['https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest',
                         'https://www.googleapis.com/discovery/v1/apis/drive/v3/rest'];
 var SCOPES = [
