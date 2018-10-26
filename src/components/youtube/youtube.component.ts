@@ -22,6 +22,14 @@ export class YoutubeComponent {
     console.log('player state', event.data);
   }
 
+  playVideo() {
+    this.player.playVideo();
+  }
+
+  pauseVideo() {
+    this.player.pauseVideo();
+  }
+
   back() {
     this.router.navigate(["/home"]);
 }
