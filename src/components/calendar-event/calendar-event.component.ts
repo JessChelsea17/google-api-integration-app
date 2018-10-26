@@ -1,6 +1,6 @@
-import { Component, OnInit, EventEmitter, Output, Input, NgZone } from '@angular/core';
-import { Event } from './Event';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
+import * as moment from 'moment';
 import { User } from "../../models/user";
 import { AppContext } from "../../infrastructure/app.context";
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
@@ -12,13 +12,8 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 })
 export class CalendarEventComponent implements OnInit {
 
-  @Output() newEvent: EventEmitter<Event> = new EventEmitter();
-  @Input() currentEvent: Event;
-  @Input() isEdit: boolean;
-  users: User[]=[];
-  url: string = `https://calendar.google.com/calendar/embed?showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=malicdemj@google.com&amp;color=%23AB8B00&amp;ctz=Asia%2FManila`;
-  urlSafe: SafeResourceUrl;
-  selectedUserEmail: string;
+  defaultTime: string;
+  defaultValue: boolean = true;
 
   constructor(
     private router: Router,
@@ -28,10 +23,17 @@ export class CalendarEventComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.defaultTime = moment().format('YYYY-MM-DD')+'T00:00';
     this.users = this.appContext.Repository.User.getAll();
     this.selectedUserEmail = this.users[1].Email;
     this.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(this.url);
+  
   }
+
+  users: User[]=[];
+  url: string = `https://calendar.google.com/calendar/embed?showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=malicdemj@google.com&amp;color=%23AB8B00&amp;ctz=Asia%2FManila`;
+  urlSafe: SafeResourceUrl;
+  selectedUserEmail: string;
 
   addEvent(eventname, eventlocation, description, startdate, enddate, timezone) {
     if(!startdate || !enddate || !timezone) {
@@ -39,6 +41,7 @@ export class CalendarEventComponent implements OnInit {
     } else {
       startdate = startdate + ':00';
       enddate = enddate + ':00';
+      console.log(startdate);
       var reqBody = {
         'summary': eventname,
         'location': eventlocation,
