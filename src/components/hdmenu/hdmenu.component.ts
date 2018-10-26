@@ -23,7 +23,7 @@ export class HdMenuComponent implements OnInit {
 
     ngOnInit(): void {
         this.users = this.appContext.Repository.User.getAll();
-        this.selectedUserId = this.users[0].Id;
+        this.selectedUserId = this.users[1].Id;
     }
 
     signOut(){

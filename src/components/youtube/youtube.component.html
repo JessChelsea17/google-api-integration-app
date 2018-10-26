@@ -1,0 +1,27 @@
+<div id="branding">
+    <div id="btn">
+        <button mat-raised-button color="warn" (click)="back()">Back</button>
+    </div>
+    <div id="title">
+        Youtube
+    </div>
+</div>
+
+
+<div class="container">
+    <div id="video">
+        <youtube-player
+            [videoId]="id"
+            [height]="height"
+            [width]="width"
+            (ready)="savePlayer($event)"
+            (change)="onStateChange($event)"
+        ></youtube-player>
+    </div>
+
+    <div class="col-md-12 buttons">
+        <button id="play" type="button" class="btn btn-default" (click)="playVideo()">Play</button>
+        <button id="pause" type="button" class="btn btn-default" (click)="pauseVideo()">Pause</button>
+    </div>
+</div>
+     

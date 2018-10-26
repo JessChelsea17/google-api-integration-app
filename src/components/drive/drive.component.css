@@ -23,3 +23,22 @@ th.mat-column-icon, td.mat-column-icon {
 .centered {
     margin-top: 1rem;
 }
+
+#branding {
+    background: #212121;
+    color: #fff;
+    width: 100%;
+}
+
+#title {
+    text-align: center;
+    vertical-align: middle;
+    line-height: 45px;
+    height: 50px;
+    font-size: 20px;
+}
+
+#btn {
+    position: absolute;
+    padding: 10px 0 0 10px;
+}
