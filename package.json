@@ -33,6 +33,7 @@
     "font-awesome": "^4.7.0",
     "googleapis": "^27.0.0",
     "jquery": "^3.3.1",
+    "moment": "^2.22.2",
     "ngx-youtube-player": "^6.0.0",
     "popper.js": "^1.14.4",
     "rxjs": "^6.0.0",
