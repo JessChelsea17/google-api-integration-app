@@ -1,6 +1,6 @@
 # GoogleAPI
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.4 and uses Google APIs (Drive, Calendar and Youtube) methods. It uses basic Google Sign-In integration (https://developers.google.com/identity/sign-in/web/sign-in). The app was also deployed using Firebase (https://firebase.google.com/docs/hosting/deploying).
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.4 and uses Google API (Drive, Calendar and Youtube) methods. It uses basic Google Sign-In integration (https://developers.google.com/identity/sign-in/web/sign-in). The app was also deployed using Firebase (https://firebase.google.com/docs/hosting/deploying).
 
 ## Development server
 
